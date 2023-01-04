@@ -1,0 +1,21 @@
+{
+  "name": "13-domain-address-tracker",
+  "version": "1.0.0",
+  "description": "Domain address tracker",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass scss/main.scss css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "sass scss/main.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10versions' css/style.comp.css -o css/style.prefix.css"
+  },
+  "author": "Algirdas",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.57.1"
+  }
+}
