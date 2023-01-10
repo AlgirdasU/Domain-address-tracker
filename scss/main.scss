@@ -1,20 +1,26 @@
 :root {
   // PRIMARY COLORS
-  --light-gray: #ced4da;
+  --white: #fff;
+  --very-light-gray: #eee;
+  --light-gray: rgb(240, 240, 240);
+  --underline-gray: #cdd3da;
+  --data-backgroun: #424247;
+  --error: rgb(219, 9, 9);
 
   // TYPOGRAPHY
   --text-input: 1.8rem;
+  --input-gray: #626568;
+  --input-light-gray: #aaaaaa;
 
   // BTN/BTN HOVER
-  --btn: #20c997;
-  --btn-hover: #63e6be;
+  --green: #12b886;
+  --green-hover: #20c997;
 
   //FONT
-  --major-font-family: "Hind Madurai", sans-serif;
+  --major-font-family: "Inter", sans-serif;
   --font-regular: 400;
   --font-medium: 500;
-  --font-bold: 700;
-  @import url("https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;500;600&display=swap");
+  --font-bold: 600;
 }
 
 *,
@@ -34,6 +40,7 @@ ul,
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--major-font-family);
 }
 
 html {
@@ -41,8 +48,147 @@ html {
   font-size: 62.5%;
 }
 
-p {
-  font-size: 3rem;
-  font-family: var(--major-font-family);
-  background-color: #63e6be;
+.header {
+  position: relative;
+  box-shadow: 0 0.5rem 1rem 0rem rgb(92 92 92 / 20%);
+  z-index: 200;
+
+  &__box {
+    text-align: center;
+    padding: 3rem 1rem;
+    min-height: 15rem;
+  }
+}
+
+.heading-primary {
+  font-size: 5rem;
+  font-size: clamp(3rem, 5vw, 5rem);
+  padding-bottom: 2rem;
+  text-transform: capitalize;
+  font-weight: var(--font-bold);
+}
+
+.search {
+  margin-bottom: 0.6rem;
+  margin: 0 1rem;
+
+  &__label {
+    position: relative;
+    font-size: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  // Styling placeholder start
+  &__input:valid + &__placeholder,
+  &__input:focus + &__placeholder {
+    top: 1rem;
+    font-size: 1.4rem;
+    color: var(--input-gray);
+    background-color: var(--white);
+    box-shadow: 0 0 0.9rem -0.6rem rgb(92 92 92 / 90%);
+  }
+
+  &__input:valid,
+  &__input:focus {
+    border: 2.2px solid var(--green);
+  }
+
+  &__placeholder {
+    position: absolute;
+    left: 2rem;
+    top: calc(50% + 1rem);
+    transform: translateY(-50%);
+    color: var(--input-light-gray);
+    transition: all 300ms ease;
+    pointer-events: none;
+    padding: 0.1rem 0.3rem;
+  }
+  // Styling placeholder end
+
+  &__input {
+    border: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: 2rem;
+    padding: 0rem 2rem;
+    margin-right: 1rem;
+    max-width: 50rem;
+    width: 100%;
+    height: 4.4rem;
+    border-top-left-radius: 2rem;
+    background: var(--light-gray);
+    color: var(--input-gray);
+    outline: none;
+    border-bottom-right-radius: 2rem;
+    transition: border 300ms ease;
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+
+  &__btn {
+    border: none;
+    height: 4.4rem;
+    padding: 0 2rem 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    background-color: var(--green);
+    color: var(--white);
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    transition: all 180ms;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--green-hover);
+    }
+  }
+}
+
+.error-msg {
+  color: var(--error);
+  font-size: 1.4rem;
+}
+
+.main {
+  display: flex;
+  overflow: hidden;
+  position: fixed;
+}
+.data {
+  padding: 1.8rem 2rem;
+  min-width: 27rem;
+  z-index: 300;
+  background-color: var(--data-backgroun);
+  box-shadow: 1.4rem 0 0.9rem -0.6rem rgb(92 92 92 / 20%);
+
+  &__box {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    column-gap: 3rem;
+    padding: 0.8rem 0 0.8rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: var(--font-bold);
+    white-space: nowrap;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+  }
+
+  &__value {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: start;
+    color: var(--white);
+  }
+}
+
+#map {
+  width: 100vw;
+  height: calc(100vh - 15rem);
+  z-index: 100;
 }
