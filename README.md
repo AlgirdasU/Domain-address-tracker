@@ -42,8 +42,6 @@ Users should be able to:
 - BEM
 - JS
 
-```
-
 ## Author
 
 - Website - [Algirdas](https://github.com/AlgirdasU/Domain-address-tracker)
